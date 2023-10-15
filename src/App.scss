@@ -1,0 +1,380 @@
+$sideBar: #040404;
+$background: #131313;
+$lighter: #282828;
+$text: #b3b3b3;
+$nav: #090909;
+$main: #1db954;
+
+@font-face {
+  font-family: circular-book;
+  src: url(./fonts/CircularStd-Bold.otf);
+}
+
+@font-face {
+  font-family: circular-bold;
+  src: url(./fonts/CircularStd-Book.otf);
+}
+
+@font-face {
+  font-family: circular-black;
+  src: url(./fonts/CircularStd-Black.otf);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.upperCase{
+  text-transform: uppercase;
+}
+
+.smallText{
+  font-size: 0.75rem;
+  letter-spacing: 0.8px;
+  &.bold {
+    font-weight: 600;
+  }
+}
+
+body {
+  font-family: circular-book;
+}
+
+.App {
+  height: calc(100vh - 90px);
+  background: $background;
+  display: flex;
+}
+
+.subText {
+  font-size: 0.9rem;
+  color: $text;
+}
+
+.sideBar {
+  width: 250px;
+ 
+  background: $sideBar;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  .logo {
+    padding: 1.5rem 1.5rem;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+    li {
+      color: $text;
+      list-style-type: none;
+      border-radius: 5px;
+      padding: 0.7rem;
+      font-size: 0.8rem;
+      font-family: circular-bold;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      display: flex;
+      align-items: center;
+      svg {
+        fill: currentColor;
+        margin-right: 15px;
+      }
+      &.active {
+        background: $lighter;
+        color: white;
+        svg {
+          fill: white;
+        }
+      }
+      &:hover {
+        color: white;
+      }
+    }
+  }
+  .cookies {
+    font-size: 0.6rem;
+    color: $text;
+    text-align: center;
+    margin-top: auto;
+    padding: 1rem;
+    span {
+      display: block;
+    }
+  }
+}
+
+.outerWrap{
+  background: grey;
+  height: 100vh;
+  min-height: 100%;
+}
+
+.musicControls {
+  background: $lighter;
+  text-align: center;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  border-top: 1px solid $background;
+}
+
+.nav {
+  background: rgba(9, 9, 9, 0.78);
+  height: 56px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  color: white;
+  padding: 0.5rem 2rem;
+  position: fixed;
+  top: 0;
+  z-index: 2;
+}
+
+.main {
+  width: 100%;
+  overflow-y: scroll;
+  position: relative;
+  padding-top: 2rem;
+  .content {
+    color: white;
+    .mainInner{
+      padding: 1rem 2rem;
+    }
+    h1 {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+.cardWrap {
+  padding-bottom: 0.8rem;
+  h2 {
+    margin-bottom: 0;
+  }
+  .subText {
+    margin-top: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .cardWrapInner {
+    display: grid;
+    grid-gap: 16px;
+    grid-template-columns: repeat(auto-fill, minmax(164px, 1fr));
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+  }
+  .card {
+    background: $lighter;
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 1.2rem 1.2rem 0.8rem; 
+    box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.3), 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+    position: relative;
+    &:hover {
+      .playIcon {
+        opacity: 1;
+      }
+    }
+    .cardImage {
+      height: 160px;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+    .cardContent {
+      padding: 0.4rem 0;
+      h3 {
+        font-size: 600;
+        font-size: 0.9rem;
+        letter-spacing: 0.6px;
+      }
+    }
+  }
+}
+
+.playIcon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  background-color: $main;
+  opacity: 0;
+  margin-left: auto;
+
+  svg {
+    margin: auto;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.playlistPage {
+  background-color: rgb(214, 214, 214);
+  .mainInner {
+    background-image: -webkit-gradient(
+      linear,
+      left top,
+      left bottom,
+      from(rgba(0, 0, 0, 0.5)),
+      color-stop(40%, #121212)
+    );
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), #121212 40%);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .playlistPageInfo{
+    text-align: center;
+    padding: 1.5rem 0;
+    display: flex;
+    .playlistPageImage{
+      width: 260px;
+      height: 260px;
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        -webkit-box-shadow: 0 4px 60px rgba(0, 0, 0, 0.5);
+        box-shadow: 0 4px 60px rgba(0, 0, 0, 0.5);
+      }
+    }
+  }
+  
+  .playlistPageSong {
+    height: 100%;
+    .playlistButtons {
+      display: flex;
+      align-items: center
+    }
+    .playIcon {
+      @extend .playIcon;
+      opacity: 1;
+      position: relative;
+      margin-left: 0;
+      height: 56px;
+      width: 56px;
+      right: 0;
+      bottom: 0;
+      svg {
+        height: 26px;
+        width: 26px;
+      }
+    }
+
+    .icons {
+      .icon {
+        margin-left: 1.5rem;
+      }
+      .iconHeart {
+        width: 28px;
+        height: 28px;
+        svg {
+          fill: white;
+        }
+      }
+    }
+  }
+  .playlistPageContent{
+    text-align: left;
+    padding: 1.5rem 2rem;
+    h1 {
+      font-size: 7rem;
+      margin: 0;
+      line-height: 1;
+      font-family: circular-black;
+      word-spacing: -5px;
+      letter-spacing: -6px;
+    }
+    .tagline {
+      font-size: 0.9rem;
+      opacity: 0.7;
+      margin-bottom: 0.5rem;
+    }
+    .playlistPageDesc {
+      display: flex;
+      align-items: center;
+      p {
+        margin: 0;
+      }
+      span {
+        opacity: 0.7;
+        position: relative;
+        padding-left: 20px;
+        &::before {
+          content: " ";
+          width: 4px;
+          height: 4px;
+          background: inherit;
+          overflow: hidden;
+          border-radius: 50%;
+          position: absolute;
+          top: 9px;
+          margin-left: -10px;
+          background: white;
+        }
+      }
+    }
+  }
+}
+
+ul.songList {
+  padding: 0;
+  li {
+    list-style-type: none;
+    width: 100%;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    transition: $background 0.2s ease-in-out;
+    border-radius: 5px;
+    .songIcon {
+      padding-right: 0.8rem;
+      .play {
+        display: none;
+      }
+      svg {
+        fill: rgba(255, 255, 255, 0.7);
+        width: 20px;
+        height: 20px;
+      }
+    }
+    .songDetails {
+      h3 {
+        margin: 0;
+        font-size: 1rem;
+        font-weight: 300;
+      }  
+      span {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.8rem;
+      }
+    }
+    .songTime {
+      margin-left: auto;
+    }
+    &:hover {
+      background: rgba(255, 255, 255, 0.1);
+      cursor: pointer;
+      .play {
+        display: block;
+      }
+      .note {
+        display: none;
+      }
+    }
+  }
+}
